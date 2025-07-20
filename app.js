@@ -13,9 +13,7 @@ app.use(expressLayouts);
 app.set('layout', './layouts/main');
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+app.use('/', require('./server/routes/main'));
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);

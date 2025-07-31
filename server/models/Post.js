@@ -1,6 +1,4 @@
-const { create } = require("connect-mongo");
-
-const mongoose = reqiure('mongoose');
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 const PostSchema = new Schema({
@@ -19,6 +17,7 @@ const PostSchema = new Schema({
     updatedAt: {
         type: Date,
         default: Date.now
-    });
+    }
+});
 
-module.exports = mongoose.module('Post', PostSchema);
+module.exports = mongoose.model('Post', PostSchema);

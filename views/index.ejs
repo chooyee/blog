@@ -6,16 +6,20 @@
 <img src="/img/hero-image.webp" alt="person looking out through window" class="hero-image" width="981" height="528">
 
 <section class="articles">
-    <div class="text-primary">test bootstrap</div>
   <h2 class="articles__heading">Latest Posts</h2>
 
   <ul class="article-ul">
-    <li>
-        <a href="#">
-            <span>Post Title</span>
-            <span class="article-list__date">Date</span>
+
+    <% data.forEach(post => { %>
+      <li>
+        <a href="/posts/<%= post._id %>">
+          <span><%= post.title %></span>
+          <span class="article-list__date"><%= post.createdAt.toLocaleDateString() %></span>
         </a>
-    </li>
+      </li>
+
+    <% }) %>
+
   </ul>
   
   <a href="#" class="pagination">&lt; View Older Posts</a>

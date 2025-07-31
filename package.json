@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "Simple blog web application with independant frontend and backend.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "app.js",
+  "scripts": {   
+    "start": "node app.js",
     "dev": "nodemon app.js"
   },
   "repository": {
@@ -30,6 +29,7 @@
     "express-session": "^1.18.2",
     "jsonwebtoken": "^9.0.2",
     "method-override": "^3.0.0",
+    "mongodb": "^6.18.0",
     "mongoose": "^8.16.4"
   },
   "devDependencies": {

@@ -2,11 +2,15 @@ require('dotenv').config();
 
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
+const connectDB = require('./server/config/db');
 
 const app = express();
-const PORT = 5000 || process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
-app.use(express.static('public'));
+// Connect to MongoDB
+connectDB();
+
+app.use(express.static('public')); // makes anything from the public folder accessible from root url
 
 // Templating engine
 app.use(expressLayouts);

@@ -44,6 +44,31 @@ router.get('/', async (req, res) => {
     
 });
 
+/**
+ * GET /
+ * Post :id
+*/
+router.get('/posts/:id', async (req, res) => {
+  try {
+
+    let slug = req.params.id;
+
+    const data = await Post.findById({ _id: slug });
+
+    const locals = {
+      title: 'NodeJS Blog',
+      description: 'Some description about the blog.'
+    }
+    
+    res.render('post', {
+      locals, 
+      data,
+      currentRoute: `/posts/${slug}`});
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 function insertPostData () {
   Post.insertMany([
     {

@@ -1,0 +1,16 @@
+<h2>Search Results for "<%= query %>"</h2>
+
+<% if (posts.length === 0) { %>
+  <p>No results found.</p>
+<% } else { %>
+  <ul class="article-list">
+    <% posts.forEach(post => { %>
+      <li>
+        <a href="/posts/<%= post._id %>">
+          <span><%= post.title %></span>
+          <span class="article-list__date"><%= post.createdAt.toLocaleDateString() %></span>
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+<% } %>

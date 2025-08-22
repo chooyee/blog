@@ -128,7 +128,7 @@ router.get('/search', async (req, res) => {
             { score: { $meta: 'textScore' } }
         ).sort({ score: { $meta: 'textScore' } });
 
-        res.render('searchResults', { posts: results, query });
+        res.render('searchResults', { posts: results, query }); // expects searchResults view in views folder
     } catch (err) {
         console.error(err);
         res.status(500).send('Server error');

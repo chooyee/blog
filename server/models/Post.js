@@ -20,4 +20,6 @@ const PostSchema = new Schema({
     }
 });
 
+PostSchema.index({ title: 'text', body: 'text' }); // add index for searching
+
 module.exports = mongoose.model('Post', PostSchema);

@@ -120,4 +120,19 @@ router.get('/about', (req, res) => {
     res.render('about');
 });
 
+router.get('/search', async (req, res) => {
+    const query = req.query.q; // expects q from search.ejs
+    try {
+        const results = await Post.find(
+            { $text: { $search: query } },
+            { score: { $meta: 'textScore' } }
+        ).sort({ score: { $meta: 'textScore' } });
+
+        res.render('searchResults', { posts: results, query });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server error');
+    }
+});
+
 module.exports = router;
